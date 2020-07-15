@@ -7,6 +7,10 @@ Add this dependency in your module's build.gradle file:
 ```
 dependencies {
     implementation 'com.github.Abdulrahman-Tayara:LiveSharedPreferences:1.0'
+    
+    // RxJava/RxAndroid
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.17'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 }
 ```
 Add repository to your app's build.gradle file :
