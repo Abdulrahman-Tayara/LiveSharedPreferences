@@ -49,4 +49,8 @@ sharedPreferences.putInt("KEY", 20);
    new data: 20
    new data: 30        
 */        
+
+// Using normal sharedPreferences
+int value = sharedPreferences.getInt("KEY", DEFAULT_VALUE);
+
 ```
