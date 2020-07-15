@@ -29,14 +29,16 @@ allprojects {
 // Init
 ISharedPreferences sharedPreferences = new LiveSharedPreferences(context);
 
+// save the data before the subscribe
+sharedPreferences.putInt("KEY", 10);
+
 // Subscribe
 Disposable disposable = sharedPreferences.getIntObservable("KEY", DEFAULT_VALUE)
                 .subscribe(newData -> {
                     System.out.println("new data: " + newData);
                 });        
   
-// Emitting the data  
-sharedPreferences.putInt("KEY", 10);
+// save new data
 sharedPreferences.putInt("KEY", 20);
 sharedPreferences.putInt("KEY", 20);        
 
