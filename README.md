@@ -9,7 +9,7 @@ By using this library you will have the ability to get notified when the sharedp
 ISharedPreferences sharedPreferences = new LiveSharedPreferences(context);
 
 // Subscribe
-Disposable disposable = sharedPreferences.getIntObservable("KEY", 1)
+Disposable disposable = sharedPreferences.getIntObservable("KEY", DEFAULT_VALUE)
                 .subscribe(newData -> {
                     System.out.println("new data: " + newData);
                 });        
