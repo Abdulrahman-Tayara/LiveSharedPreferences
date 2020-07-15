@@ -1,6 +1,6 @@
 # Android LiveSharedPreferences Library
 Simple library to provide reactive sharedpreferences using RxJava.
-By using this library you will have the ability to get notified when the sharedpreferences data is changed.
+By using this library you will have the ability to get notified when the sharedpreferences data is changed and you will able to save an object in sharedpreferences.
 
 # Gradle dependency 
 Add this dependency in your module's build.gradle file:
@@ -28,20 +28,20 @@ About [RxJava](https://github.com/ReactiveX/RxJava)
 
 ```Java
 // Init
-ISharedPreferences sharedPreferences = new LiveSharedPreferences(context);
+ISharedPreferences liveSharedPreferences = new LiveSharedPreferences(context);
 
 // save the data before the subscribe
-sharedPreferences.putInt("KEY", 10);
+liveSharedPreferences.putInt("KEY", 10);
 
 // Subscribe
-Disposable disposable = sharedPreferences.getIntObservable("KEY", DEFAULT_VALUE)
+Disposable disposable = liveSharedPreferences.getIntObservable("KEY", DEFAULT_VALUE)
                 .subscribe(newData -> {
-                    System.out.println("new data: " + newData);
+                    Log.d("Log", "new data: " + newData);
                 });        
   
 // save new data
-sharedPreferences.putInt("KEY", 20);
-sharedPreferences.putInt("KEY", 20);        
+liveSharedPreferences.putInt("KEY", 20);
+liveSharedPreferences.putInt("KEY", 20);        
 
 /*
    Output:
@@ -51,6 +51,29 @@ sharedPreferences.putInt("KEY", 20);
 */        
 
 // Using normal sharedPreferences
-int value = sharedPreferences.getInt("KEY", DEFAULT_VALUE);
+int value = liveSharedPreferences.getInt("KEY", DEFAULT_VALUE);
 
+
+
+// Save an object
+class User {
+    String username;
+    String email;
+    
+    User(String username, String email) {
+        this.username = username;
+        this.email = email;
+    }
+}
+
+User user = new User("Abdulrahman", "test@test.com");
+
+liveSharedPreferences.putObject<User>("OBJECT_KEY", user);
+
+Disposable disposable = liveSharedPreferences.getObjectObservable<User>("OBJECT_KEY")
+                .subscribe(savedUser -> {
+                    Log.d("Log", "username: " + savedUser.username);
+                });
+                
+User savedUser = liveSharedPreferences.getObject<User>("OBJECT_KEY");       
 ```
