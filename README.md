@@ -70,10 +70,12 @@ User user = new User("Abdulrahman", "test@test.com");
 
 liveSharedPreferences.putObject<User>("OBJECT_KEY", user);
 
+// Retrieve the object using observable
 Disposable disposable = liveSharedPreferences.getObjectObservable<User>("OBJECT_KEY")
                 .subscribe(savedUser -> {
                     Log.d("Log", "username: " + savedUser.username);
                 });
                 
+// Retrieve the object directly
 User savedUser = liveSharedPreferences.getObject<User>("OBJECT_KEY");       
 ```
