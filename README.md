@@ -22,6 +22,7 @@ allprojects {
     }
 }
 ```
+About RxJava: [a link](https://github.com/ReactiveX/RxJava)
 
 # Example
 
