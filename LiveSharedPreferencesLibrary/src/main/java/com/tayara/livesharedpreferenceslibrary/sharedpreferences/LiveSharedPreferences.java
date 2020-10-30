@@ -108,27 +108,27 @@ public class LiveSharedPreferences implements ISharedPreferences {
 
     @Override
     public Observable<Integer> getIntObservable(String key, int defaultValue) {
-        return getSubject(key, defaultValue);
+        return getSubject(key, getInt(key, defaultValue));
     }
 
     @Override
     public Observable<Long> getLongObservable(String key, long defaultValue) {
-        return getSubject(key, defaultValue);
+        return getSubject(key, getLong(key, defaultValue));
     }
 
     @Override
     public Observable<Float> getFloatObservable(String key, float defaultValue) {
-        return getSubject(key, defaultValue);
+        return getSubject(key, getFloat(key, defaultValue));
     }
 
     @Override
     public Observable<String> getStringObservable(String key, String defaultValue) {
-        return getSubject(key, defaultValue);
+        return getSubject(key, getString(key, defaultValue));
     }
 
     @Override
     public Observable<Boolean> getBooleanObservable(String key, boolean defaultValue) {
-        return getSubject(key, defaultValue);
+        return getSubject(key, getBoolean(key, defaultValue));
     }
 
     @Override
@@ -173,4 +173,5 @@ public class LiveSharedPreferences implements ISharedPreferences {
             return null;
         return jsonMapper.unmap(json, clz);
     }
+
 }
