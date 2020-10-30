@@ -6,7 +6,7 @@ By using this library you will have the ability to get notified when the sharedp
 Add this dependency in your module's build.gradle file:
 ```
 dependencies {
-    implementation 'com.github.Abdulrahman-Tayara:LiveSharedPreferences:1.0'
+    implementation 'com.github.Abdulrahman-Tayara:LiveSharedPreferences:2.1'
     
     // RxJava/RxAndroid
     implementation 'io.reactivex.rxjava2:rxjava:2.2.17'
