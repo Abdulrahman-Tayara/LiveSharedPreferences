@@ -174,4 +174,9 @@ public class LiveSharedPreferences implements ISharedPreferences {
         return jsonMapper.unmap(json, clz);
     }
 
+    @Override
+    public void clear() {
+        subjectMap.clear();
+        editor.clear().commit();
+    }
 }

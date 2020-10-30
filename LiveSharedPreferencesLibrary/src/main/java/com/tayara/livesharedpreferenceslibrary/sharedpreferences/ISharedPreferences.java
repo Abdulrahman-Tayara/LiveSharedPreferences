@@ -42,4 +42,6 @@ public interface ISharedPreferences {
 
     <T> T getObject(String key, Class<T> clz);
 
+    void clear();
+
 }
